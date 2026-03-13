@@ -1,6 +1,6 @@
 from rest_framework import viewsets, mixins
-from .models import Product, Category, SubCategory
-from .serializers import ProductSerializer, CategorySerializer, SubCategorySerializer
+from .models import Product, Category
+from .serializers import ProductSerializer, CategorySerializer
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -12,10 +12,6 @@ class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer   
 
-
-class SubCategoryViewSet(viewsets.ModelViewSet):
-    queryset = SubCategory.objects.all()
-    serializer_class = SubCategorySerializer    
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
