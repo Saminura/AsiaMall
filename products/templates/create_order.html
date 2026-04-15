@@ -1,0 +1,9 @@
+<h2>Оформить заказ</h2>
+<form method="post">
+  {% csrf_token %}
+  <label>Название продукта:</label>
+  <input type="text" name="product_name" required><br>
+  <label>Количество:</label>
+  <input type="number" name="quantity" value="1" min="1"><br>
+  <button type="submit">Заказать</button>
+</form>

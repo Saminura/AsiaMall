@@ -1,0 +1,9 @@
+<h2>Заявка на аренду</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Имя"><br>
+    <input type="text" name="phone" placeholder="Телефон"><br>
+    <textarea name="message" placeholder="Сообщение"></textarea><br>
+    <button type="submit">Отправить</button>
+</form>

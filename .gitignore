@@ -1,0 +1,9 @@
+venv/
+<<<<<<< HEAD
+=======
+__pycache__/
+*.pyc
+db.sqlite3
+*.log
+.env
+>>>>>>> 07a996df1cf44b6cac11f4142e0cf70d280e9e19
