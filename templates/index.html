@@ -1,12 +1,16 @@
-<h1>AsiaMall</h1>
+<h1>Корзина</h1>
 
-{% for product in products %}
-  <div>
-    <h3>{{ product.name }}</h3>
-    <p>{{ product.price }}</p>
-    <form action="{% url 'add_to_cart' product.id %}" method="post">
-        {% csrf_token %}
-        <button type="submit">Добавить в корзину</button>
-    </form>
-  </div>
+{% for item in cart_items %}
+    <p>
+        {{ item.product.name }} —
+        {{ item.quantity }} шт —
+        {{ item.item_total }} сом
+        <a href="/remove/{{ item.product.id }}/">Удалить</a>
+    </p>
 {% endfor %}
+
+<hr>
+
+<h3>Итого: {{ total_price }} сом</h3>
+<br>
+<a href="/clear-cart/">Очистить корзину</a>
