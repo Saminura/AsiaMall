@@ -1,16 +1,157 @@
-<h1>Корзина</h1>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>AsiaMall</title>
 
-{% for item in cart_items %}
-    <p>
-        {{ item.product.name }} —
-        {{ item.quantity }} шт —
-        {{ item.item_total }} сом
-        <a href="/remove/{{ item.product.id }}/">Удалить</a>
-    </p>
-{% endfor %}
+    <style>
 
-<hr>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
 
-<h3>Итого: {{ total_price }} сом</h3>
-<br>
-<a href="/clear-cart/">Очистить корзину</a>
+        body{
+            background:#f3f4f6;
+        }
+
+        .navbar{
+            background:white;
+            padding:20px 40px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            box-shadow:0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo{
+            font-size:32px;
+            font-weight:bold;
+        }
+
+        .cart-btn{
+            background:black;
+            color:white;
+            padding:12px 20px;
+            border-radius:10px;
+            text-decoration:none;
+        }
+
+        .container{
+            padding:40px;
+        }
+
+        .products{
+            display:grid;
+            grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+            gap:30px;
+        }
+
+        .card{
+            background:white;
+            border-radius:20px;
+            overflow:hidden;
+            box-shadow:0 5px 20px rgba(0,0,0,0.08);
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-5px);
+        }
+
+        .image{
+            height:220px;
+            background:#e5e7eb;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:60px;
+        }
+
+        .content{
+            padding:20px;
+        }
+
+        .title{
+            font-size:22px;
+            margin-bottom:10px;
+        }
+
+        .price{
+            font-size:24px;
+            font-weight:bold;
+            margin-bottom:20px;
+        }
+
+        .btn{
+            display:block;
+            width:100%;
+            background:black;
+            color:white;
+            padding:14px;
+            text-align:center;
+            border-radius:12px;
+            text-decoration:none;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:#333;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+
+        <div class="logo">
+            AsiaMall
+        </div>
+
+        <a href="/cart/" class="cart-btn">
+            🛒 Корзина
+        </a>
+
+    </div>
+
+    <div class="container">
+
+        <div class="products">
+
+            {% for product in products %}
+
+            <div class="card">
+
+                <div class="image">
+                    📦
+                </div>
+
+                <div class="content">
+
+                    <div class="title">
+                        {{ product.name }}
+                    </div>
+
+                    <div class="price">
+                        {{ product.price }} сом
+                    </div>
+
+                    <a href="/add/{{ product.id }}/" class="btn">
+                        Добавить в корзину
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</body>
+</html>
